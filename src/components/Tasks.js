@@ -1,14 +1,13 @@
 import React from 'react'
-import Task from './components/Task'
+import Task from './Task'
 
 function Tasks({tasks,onDelete,onEdit,onToggle}) {
   return (
     <div>
         {tasks.map((task)=>(
-                <Task task={task} onDelete={onDelete} onEdit={onEdit} onToggle={onToggle}/>
+                <Task key={task.id} task={task} onDelete={onDelete} onEdit={onEdit} onToggle={onToggle}/>
             )
         )}
-
     </div>
   )
 }

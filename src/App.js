@@ -1,11 +1,11 @@
 import {useState} from 'react'
 import './App.css';
 import Tasks from './components/Tasks'
-import React from 'react'
 import AddTask from './components/AddTask';
 
 function App() {
-const [tasks, setTasks] =useState([
+const [tasks, setTasks] =useState(
+  [
   {
     isComplete: false,
     text: 'Compile the Spring boot app for deployment',
@@ -21,25 +21,28 @@ const [tasks, setTasks] =useState([
     text: 'Run the app on the VM',
     id:3
   }
-])
+]
+)
+
 const onAdd=(task)=>{
 const id=Math.floor(Math.random()*10000)+1;
 const newTask={id,...task}
 setTasks([...tasks, newTask])
 }
-const onDelete=()=>{
+const deleteTask=(id)=>{
+  setTasks(tasks.filter(task=>task.id!==id))
+}
+
+const editTask=()=>{
 
 }
-const onEdit=()=>{
-
-}
-const onToggle=()=>{
-
+const toggleIsComplete=(id)=>{
+  // setTasks(tasks.map(task=>task.id===id ? {...task, isComplete: !task.isComplete} : task))
 }
   return (
     <div className='container'>
       <AddTask onAdd={onAdd} />
-      <Tasks tasks={tasks} onDelete={onDelete} onToggle={onToggle} />
+      <Tasks tasks={tasks} onDelete={deleteTask} onEdit={editTask} onToggle={toggleIsComplete} />
 
     </div>
   )

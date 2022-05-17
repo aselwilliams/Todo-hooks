@@ -5,13 +5,13 @@ import {FaPencilAlt} from 'react-icons/fa'
 function Task(task,onDelete,onToggle,onEdit) {
   return (
     <ul>
-        <li>
+        <li className='flex'>
             <div>
             <input type='checkbox'onClick={()=>onToggle(task.id)}/>
             {task.text} 
             </div>
             <div>
-            <FaTimes onClick={()=>onDelete(task.id)}/>
+            <FaTimes style={{color:'red', cursor:'pointer'}} onClick={()=>onDelete(task.id)}/>
             <FaPencilAlt onClick={()=>onEdit(task.id)} />
             </div>
             
