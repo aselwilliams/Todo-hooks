@@ -1,13 +1,33 @@
 .container{
-  width: 60%;
+  width: 63%;
   margin: auto;
+  text-align: center;
+}
+ul{
+width: 45%;
+ margin: auto;
+
 }
 .flex{
   display: flex;
   justify-content: space-between;
- width:43%;
+  border-bottom: 1px solid #333;
+  align-items: center;
+
+}
+ul li{
+  list-style: none;
+  text-align: start;
 }
 input{
-  width: 40%;
+  width: 38%;
   padding: 5px;
+}
+.text{
+  display: grid;
+  grid-template-columns: 30px 440px;
+  grid-template-rows: 1fr;
+}
+.checkbox{
+  width: 30px;
 }

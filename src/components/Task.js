@@ -8,13 +8,13 @@ function Task({task,onDelete,onToggle,onEdit}) {
   return (
     <>
         <li key={task.id} className='flex'>
-            <div>
-            <input type='checkbox'onClick={()=>onToggle(task.id)}/>
-            {task.text} 
+            <div className='text'>
+              <div className='checkbox'><input type='checkbox'onClick={()=>onToggle(task.id)}/></div>
+              <p>{task.text} </p>
             </div>
             <div>
             <FaTimes style={{color:'red', cursor:'pointer'}} onClick={()=>onDelete(task.id)}/>
-            <FaPencilAlt onClick={()=>onEdit(task.id)} />
+            <FaPencilAlt style={{color:'#333', cursor:'pointer'}} onClick={()=>onEdit(task.id)} />
             </div>
         </li>
         </>

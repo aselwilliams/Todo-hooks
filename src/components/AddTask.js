@@ -20,7 +20,7 @@ function AddTask({onAdd}) {
   return (
     <form onSubmit={onSubmit}>
         <input value={text} onChange={(e)=>setText(e.target.value)}/>
-        <button  className='btn btn-primary'>Add</button>
+        <button  className='btn btn-primary ms-2'>Add</button>
     </form>
   )
 }
