@@ -31,19 +31,20 @@ setTasks([...tasks, newTask])
 }
 const deleteTask=(id)=>{
   setTasks(tasks.filter(task=>task.id!==id))
+  console.log('DELETE')
 }
 
 const editTask=()=>{
+console.log('EDIT')
 
 }
 const toggleIsComplete=(id)=>{
-  // setTasks(tasks.map(task=>task.id===id ? {...task, isComplete: !task.isComplete} : task))
+  setTasks(tasks.map(task=>task.id===id ? {...task, isComplete: !task.isComplete} : task))
 }
   return (
     <div className='container'>
       <AddTask onAdd={onAdd} />
-      <Tasks tasks={tasks} onDelete={deleteTask} onEdit={editTask} onToggle={toggleIsComplete} />
-
+      <Tasks tasks={tasks} onDelete={deleteTask} onEdit={editTask} onToggle={toggleIsComplete}/>
     </div>
   )
 }
