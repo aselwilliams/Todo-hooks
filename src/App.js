@@ -4,6 +4,7 @@ import Tasks from './components/Tasks'
 import AddTask from './components/AddTask';
 
 function App() {
+  const [task,setTask]=useState('')
 const [tasks, setTasks] =useState(
   [
   {
@@ -34,17 +35,18 @@ const deleteTask=(id)=>{
   console.log('DELETE')
 }
 
-const editTask=()=>{
-console.log('EDIT')
+// const editTask=(task)=>{
+// console.log('EDIT')
+// setTask(task)
 
-}
+// }
 const toggleIsComplete=(id)=>{
   setTasks(tasks.map(task=>task.id===id ? {...task, isComplete: !task.isComplete} : task))
 }
   return (
     <div className='container'>
       <AddTask onAdd={onAdd} />
-      <Tasks tasks={tasks} onDelete={deleteTask} onEdit={editTask} onToggle={toggleIsComplete}/>
+      <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleIsComplete}/>
     </div>
   )
 }

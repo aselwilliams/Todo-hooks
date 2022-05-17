@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import {FaRegPlusSquare} from 'react-icons/fa'
 
 
 function AddTask({onAdd}) {
@@ -20,6 +21,7 @@ function AddTask({onAdd}) {
   return (
     <form onSubmit={onSubmit}>
         <input value={text} onChange={(e)=>setText(e.target.value)}/>
+        {/* <FaRegPlusSquare style={{color:'green', cursor:'pointer',width:'25px'}}/> */}
         <button  className='btn btn-primary ms-2'>Add</button>
     </form>
   )
