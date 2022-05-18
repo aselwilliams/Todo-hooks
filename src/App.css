@@ -34,3 +34,7 @@ input{
 .edit-input{
   width: 400px;
 }
+.strike{
+  text-decoration: line-through;
+  text-decoration-color:darkred;
+}
