@@ -3,11 +3,11 @@ import {useState} from 'react'
 import {FaTimes} from 'react-icons/fa'
 import {FaPencilAlt} from 'react-icons/fa'
 import {FaCheck} from 'react-icons/fa'
-import AddTask from './AddTask'
 
-function Task({task,onDelete,onToggle,onAdd}) {
+
+function Task({task,onDelete,onToggle}) {
   const [isEditing,setIsEditing]=useState(false)
-  const [text,setText]=useState(task)
+  const [editText,setEditText]=useState('')
 
 
   const onEdit=()=>{
@@ -15,14 +15,15 @@ function Task({task,onDelete,onToggle,onAdd}) {
   }
   const handleUpdate=(newText)=>{
     console.log(newText)
-    setText(newText)
+    setEditText(newText)
     // setIsEditing(!isEditing)
   }
 
   const onSubmit=(e,newText)=>{
     e.preventDefault()
-    setText(newText)
-
+    setEditText(newText)
+  
+  
 }
   return (
     <>
