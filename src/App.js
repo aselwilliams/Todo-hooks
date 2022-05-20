@@ -49,6 +49,7 @@ function App() {
       setIsComplete(false);
       setText(text);
     }
+    setText('')
   };
   const onAdd = (task) => {
     const id = Math.floor(Math.random() * 10000) + 1;
@@ -74,20 +75,31 @@ function App() {
       )
     );
   };
+
+  const handleClear=()=>{
+    setTasks([])
+  }
   return (
     <div className="container">
+      <div className="wrapper">
+      <h1>ToDo List</h1>
       <form onSubmit={onSubmit}>
-        <input value={text} onChange={(e) => setText(e.target.value)} />
+        <input value={text} onChange={(e) => setText(e.target.value)} className="add"/>
         <button className="btn btn-primary ms-2">
           {isEditing ? "Edit" : "Add"}{" "}
         </button>
       </form>
+      <div>
       <Tasks
         tasks={tasks}
         onDelete={deleteTask}
         onToggle={toggleIsComplete}
         onEdit={editTask}
+        isComplete={isComplete}
       />
+      </div>
+      <button onClick={handleClear} className="clear">Clear all</button>
+      </div>
     </div>
   );
 }

@@ -1,40 +1,58 @@
-.container{
-  width: 63%;
+.container {
+  width: 65%;
   margin: auto;
+  margin-top: 200px;
   text-align: center;
 }
-ul{
-width: 45%;
- margin: auto;
-
+.wrapper {
+  width: 50%;
+  border-radius: 15px;
+  background: rgb(165, 219, 110);
+  margin: auto;
+  padding: 10px 0;
 }
-.flex{
+ul {
+  width: 95%;
+  margin: auto;
+}
+form{
+  width: 100%;
+}
+.flex {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #333;
   align-items: center;
-
 }
-ul li{
+ul li {
   list-style: none;
   text-align: start;
 }
-input{
-  width: 38%;
+.add {
+  width: 78%;
   padding: 5px;
+  margin-left: 20px;
+  border-radius: 10px;
+  border: none;
 }
-.text{
+.text {
   display: grid;
   grid-template-columns: 30px 440px;
   grid-template-rows: 1fr;
 }
-.checkbox{
+.checkbox {
   width: 30px;
 }
-.edit-input{
+.edit-input {
   width: 400px;
 }
-.strike{
+.strike {
   text-decoration: line-through;
-  text-decoration-color:darkred;
+  text-decoration-color: darkred;
+}
+.clear {
+  border:transparent;
+  background: none;
+  color: rgb(218, 49, 49);
+  font-weight: 500;
 }

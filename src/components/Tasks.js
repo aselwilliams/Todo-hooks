@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task";
 
-function Tasks({ tasks, onDelete, onEdit, onToggle }) {
+function Tasks({ tasks, onDelete, onEdit, onToggle, isComplete }) {
   return (
     <ul>
       {tasks.map((task) => (
@@ -11,6 +11,7 @@ function Tasks({ tasks, onDelete, onEdit, onToggle }) {
           onDelete={onDelete}
           onEdit={onEdit}
           onToggle={onToggle}
+          isComplete={isComplete}
         />
       ))}
     </ul>

@@ -3,13 +3,13 @@ import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { FaPencilAlt } from "react-icons/fa";
 
-function Task({ task, onDelete, onToggle, onEdit }) {
-
+function Task({ task, onDelete, onToggle, onEdit,isComplete }) {
+console.log(isComplete)
   return (
     <>
       <li key={task.id} className='flex'>
-        <div className="text">
-          <div className="checkbox">
+        <div className={`text ${isComplete ? 'strike' : ''}`}>
+          <div className='checkbox'>
             <input type="checkbox" onClick={() => onToggle(task.id)} />
           </div>
           <p>{task.text} </p>
