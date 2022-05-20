@@ -1,7 +1,16 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "./App.css";
 import Tasks from "./components/Tasks";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+const getLocalStorage=()=>{
+  let tasksList=localStorage.getItem('tasks-list');
+  if(tasksList){
+    return JSON.parse(localStorage.getItem('tasks-list'))
+  } else {
+    return []
+  }
+}
 
 function App() {
   const [text, setText] = useState("");
@@ -9,23 +18,27 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
 
-  const [tasks, setTasks] = useState([
-    {
-      isComplete: false,
-      text: "Compile the Spring boot app for deployment",
-      id: 1,
-    },
-    {
-      isComplete: false,
-      text: "Create a Linux VM on Azure",
-      id: 2,
-    },
-    {
-      isComplete: false,
-      text: "Run the app on the VM",
-      id: 3,
-    },
-  ]);
+  const [tasks, setTasks] = useState(getLocalStorage()
+    // {
+    //   isComplete: false,
+    //   text: "Compile the Spring boot app for deployment",
+    //   id: 1,
+    // },
+    // {
+    //   isComplete: false,
+    //   text: "Create a Linux VM on Azure",
+    //   id: 2,
+    // },
+    // {
+    //   isComplete: false,
+    //   text: "Run the app on the VM",
+    //   id: 3,
+    // },
+  );
+
+  useEffect(()=>{
+    localStorage.setItem('tasks-list', JSON.stringify(tasks))
+  },[tasks])
 
   const onSubmit = (e) => {
     e.preventDefault();
