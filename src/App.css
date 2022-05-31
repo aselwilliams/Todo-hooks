@@ -48,7 +48,7 @@ ul li {
 }
 .strike {
   text-decoration: line-through;
-  text-decoration-color: darkred;
+  text-decoration-color: firebrick;
 }
 .clear {
   border:transparent;
