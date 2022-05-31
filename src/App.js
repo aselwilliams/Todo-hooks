@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import "./App.css";
 import Tasks from "./components/Tasks";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {nanoid} from 'nanoid'
 
 const getLocalStorage=()=>{
   let tasksList=localStorage.getItem('tasks-list');
@@ -17,7 +18,6 @@ function App() {
   const [isComplete,setIsComplete]=useState(false)
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
-
   const [tasks, setTasks] = useState(getLocalStorage());
 
   useEffect(()=>{

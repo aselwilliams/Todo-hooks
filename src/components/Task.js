@@ -8,11 +8,11 @@ console.log(isComplete)
   return (
     <>
       <li key={task.id} className='flex'>
-        <div className={`text ${isComplete ? 'strike' : ''}`}>
+        <div className='text'>
           <div className='checkbox'>
             <input type="checkbox" onClick={() => onToggle(task.id)} />
           </div>
-          <p>{task.text} </p>
+          <p className={task.isComplete && 'strike'}>{task.text} </p>
         </div>
 
         <div>
