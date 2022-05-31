@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import "./App.css";
 import Tasks from "./components/Tasks";
+import Form from './components/Form';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {nanoid} from 'nanoid'
 
@@ -23,7 +24,9 @@ function App() {
   useEffect(()=>{
     localStorage.setItem('tasks-list', JSON.stringify(tasks))
   },[tasks])
-
+const handleChange=(e)=>{
+  setText(e.target.value)
+}
   const onSubmit = (e) => {
     e.preventDefault();
     if (!text) {
@@ -48,10 +51,10 @@ function App() {
     }
     setText('')
   };
-  
+
   const onAdd = (task) => {
     // const id = Math.floor(Math.random() * 10000) + 1;
-    const id=nanoid()
+    const id = nanoid()
     const newTask = { id, ...task };
     setTasks([...tasks, newTask]);
   };
@@ -68,6 +71,7 @@ function App() {
     setEditID(id);
     setText(specificItem.text);
   };
+
   const toggleIsComplete = (id) => {
     setTasks(
       tasks.map((task) =>
@@ -79,24 +83,27 @@ function App() {
   const handleClear=()=>{
     setTasks([])
   }
+
+  const formProps= {
+    onSubmit: onSubmit,
+    text: text,
+    onChange: handleChange,
+    isEditing: isEditing
+  }
+  const tasksProps= {
+    tasks: tasks,
+        onDelete: deleteTask,
+        onToggle: toggleIsComplete,
+        onEdit: editTask,
+        isComplete: isComplete
+  }
   return (
     <div className="container">
       <div className="wrapper">
       <h1>ToDo List</h1>
-      <form onSubmit={onSubmit}>
-        <input value={text} onChange={(e) => setText(e.target.value)} className="add"/>
-        <button className="btn btn-primary ms-2">
-          {isEditing ? "Edit" : "Add"}{" "}
-        </button>
-      </form>
+      <Form {...formProps} />
       <div>
-      <Tasks
-        tasks={tasks}
-        onDelete={deleteTask}
-        onToggle={toggleIsComplete}
-        onEdit={editTask}
-        isComplete={isComplete}
-      />
+      <Tasks {...tasksProps} />
       </div>
       <button onClick={handleClear} className="clear">Clear all</button>
       </div>
