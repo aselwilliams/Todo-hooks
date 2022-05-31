@@ -18,23 +18,7 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
 
-  const [tasks, setTasks] = useState(getLocalStorage()
-    // {
-    //   isComplete: false,
-    //   text: "Compile the Spring boot app for deployment",
-    //   id: 1,
-    // },
-    // {
-    //   isComplete: false,
-    //   text: "Create a Linux VM on Azure",
-    //   id: 2,
-    // },
-    // {
-    //   isComplete: false,
-    //   text: "Run the app on the VM",
-    //   id: 3,
-    // },
-  );
+  const [tasks, setTasks] = useState(getLocalStorage());
 
   useEffect(()=>{
     localStorage.setItem('tasks-list', JSON.stringify(tasks))
