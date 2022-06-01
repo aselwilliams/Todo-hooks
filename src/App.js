@@ -53,7 +53,6 @@ const handleChange=(e)=>{
   };
 
   const onAdd = (task) => {
-    // const id = Math.floor(Math.random() * 10000) + 1;
     const id = nanoid()
     const newTask = { id, ...task };
     setTasks([...tasks, newTask]);
