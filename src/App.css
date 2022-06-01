@@ -21,24 +21,30 @@ form{
 .flex {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #333;
+  /* border-bottom: 1px solid #333; */
   align-items: center;
 }
 ul li {
   list-style: none;
   text-align: start;
+  background: #fff;
+  border-radius: 5px;
+  margin:5px;
 }
 .add {
   width: 78%;
-  padding: 5px;
+  padding: 8px;
   margin-left: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
 }
 .text {
   display: grid;
   grid-template-columns: 30px 440px;
   grid-template-rows: 1fr;
+  padding-left:5px;
+  font-size: 18px;
+  font-weight:500;
 }
 .checkbox {
   width: 30px;
@@ -49,10 +55,14 @@ ul li {
 .strike {
   text-decoration: line-through;
   text-decoration-color: firebrick;
+  opacity: 0.8;
 }
 .clear {
   border:transparent;
   background: none;
   color: rgb(218, 49, 49);
   font-weight: 500;
+}
+.btn-wrapper{
+  padding-right: 5px;
 }

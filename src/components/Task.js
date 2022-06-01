@@ -14,13 +14,13 @@ function Task({ task, onDelete, onToggle, onEdit,isComplete }) {
           <p className={task.isComplete ? 'strike' : ''}>{task.text} </p>
         </div>
 
-        <div>
+        <div className="btn-wrapper">
           <FaTimes
             style={{ color: "red", cursor: "pointer" }}
             onClick={() => onDelete(task.id)}
           />
           <FaPencilAlt
-            style={{ color: "#333", cursor: "pointer" }}
+            style={{ color: "#333", cursor: "pointer", marginLeft:'5px'}}
             onClick={() => onEdit(task.id)}
           />
         </div>
